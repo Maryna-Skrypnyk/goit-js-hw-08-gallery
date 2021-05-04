@@ -13,8 +13,8 @@ const galleryMarkup = makeGalleryMarkup(galleryItems);
 galleryList.insertAdjacentHTML('beforeend', galleryMarkup);
 
 galleryList.addEventListener('click', onLightboxOpenClick);
-btnCloseEl.addEventListener('click', onLightboxCloseClick);
-overlay.addEventListener('click', onLightboxCloseClick);
+btnCloseEl.addEventListener('click', imageClose);
+overlay.addEventListener('click', imageClose);
 
 function makeGalleryMarkup(images) {
   return images
@@ -61,10 +61,6 @@ function imageOpen(source, alt, image) {
   lightboxImgEl.dataset.index = arrGalleryListCopy.indexOf(image);
 
   window.addEventListener('keydown', onLightboxChangeByKey);
-}
-
-function onLightboxCloseClick() {
-  imageClose();
 }
 
 function imageClose() {
